@@ -1,0 +1,36 @@
+<h3>Fixed point to floating point converter</h3>
+<SCRIPT language="javascript" type="text/javascript">
+function calc1()
+{
+fx_number=Number(document.calculator1.number1.value);
+
+switch(document.calculator1.fixedType.value)
+{
+    case "position" :
+        Q_frmt= 10;
+        break;
+    case "time" : 
+        Q_frmt=6;
+        break;
+    case "angle":
+        Q_frmt=31;
+        break;
+}
+//k=1.38*Math.pow(10,-23); log10(k)=228.6;
+flt_number  = fx_number/Math.pow(2,Q_frmt);
+document.calculator1.float.value=flt_number;
+}
+</SCRIPT>
+
+<FORM name="calculator1">
+    Fixed  Point  Number (input1) 			:<INPUT type="text" value="512" name="number1"> <br/><br/>
+        <label for="fixedType">type:</label>
+        <select name="fixedType" id="fixedType">
+          <option value="position">Position</option>
+          <option value="time">time</option>
+          <option value="angle">angle</option>
+        </select>
+    <INPUT type="button" value="CALCULATE" onclick="javascript:calc1();"><br/><br/>
+    Floating Point Number (Output):<INPUT type="text" name="float"> <br/><br/>
+    </FORM>
+<br/>
