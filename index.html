@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <h3>Fixed point to floating point converter</h3>
 <SCRIPT language="javascript" type="text/javascript">
     function calc1()
@@ -39,7 +40,7 @@
     {
         floating_number=Number(document.calculator.number3.value);
 
-        switch(document.calculator1.fixedType.value)
+        switch(document.calculator.fixedType.value)
         {
             case "position" :
             Q_format= 14;
@@ -68,3 +69,10 @@
         <INPUT type="button" value="CALCULATE" onclick="javascript:calc();"><br/><br/>
                 Fixed Point Number (Output):<INPUT type="text" name="fixed"> <br/><br/>
 </FORM>
+
+<h3>Common values</h3>
+<ul>
+    <li>1 as position <b>16384</b></li>
+    <li>1 as time <b>64</b></li>
+    <li>1 as angle <b>2147483648</b></li>
+</ul>
