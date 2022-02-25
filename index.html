@@ -1,36 +1,70 @@
 <h3>Fixed point to floating point converter</h3>
 <SCRIPT language="javascript" type="text/javascript">
-function calc1()
-{
-fx_number=Number(document.calculator1.number1.value);
-
-switch(document.calculator1.fixedType.value)
-{
-    case "position" :
-        Q_frmt= 14;
-        break;
-    case "time" : 
-        Q_frmt=6;
-        break;
-    case "angle":
-        Q_frmt=31;
-        break;
-}
-//k=1.38*Math.pow(10,-23); log10(k)=228.6;
-flt_number  = fx_number/Math.pow(2,Q_frmt);
-document.calculator1.float.value=flt_number;
-}
+    function calc1()
+    {
+        fx_number=Number(document.calculator1.number1.value);
+        
+        switch(document.calculator1.fixedType.value)
+        {
+            case "position" :
+            Q_frmt= 14;
+            break;
+            case "time" : 
+            Q_frmt=6;
+            break;
+            case "angle":
+            Q_frmt=31;
+            break;
+        }
+        //k=1.38*Math.pow(10,-23); log10(k)=228.6;
+        flt_number  = fx_number/Math.pow(2,Q_frmt);
+        document.calculator1.float.value=flt_number;
+    }
 </SCRIPT>
 
 <FORM name="calculator1">
     Fixed  Point  Number (input1) 			:<INPUT type="text" value="512" name="number1"> <br/><br/>
         <label for="fixedType">type:</label>
         <select name="fixedType" id="fixedType">
-          <option value="position">position</option>
-          <option value="time">time</option>
-          <option value="angle">angle</option>
+            <option value="position">position (14)</option>
+            <option value="time">time (6)</option>
+            <option value="angle">angle (31)</option>
         </select>
     <INPUT type="button" value="CALCULATE" onclick="javascript:calc1();"><br/><br/>
-    Floating Point Number (Output):<INPUT type="text" name="float"> <br/><br/>
-    </FORM>
-<br/>
+        Floating Point Number (Output):<INPUT type="text" name="float"> <br/><br/>
+</FORM>
+            
+<SCRIPT language="javascript" type="text/javascript">
+    function calc()
+    {
+        floating_number=Number(document.calculator.number3.value);
+
+        switch(document.calculator1.fixedType.value)
+        {
+            case "position" :
+            Q_format= 14;
+            break;
+            case "time" : 
+            Q_format=6;
+            break;
+            case "angle":
+            Q_format=31;
+            break;
+        }
+        //k=1.38*Math.pow(10,-23); log10(k)=228.6;
+        fixed_number  = floating_number * Math.pow(2,Q_format);
+        fixed_number =Math.round(fixed_number);
+        document.calculator.fixed.value=fixed_number;
+    }
+</SCRIPT>
+<h3>floating point to fixed point converter</h3>
+<FORM name="calculator">
+    Floating  Point  Number (input1) 			:<INPUT type="text" value="1.5" name="number3"> <br/><br/>
+        <select name="fixedType" id="fixedType">
+            <option value="position">position (14)</option>
+            <option value="time">time (6)</option>
+            <option value="angle">angle (31)</option>
+        </select>            
+        <INPUT type="button" value="CALCULATE" onclick="javascript:calc();"><br/><br/>
+                Fixed Point Number (Output):<INPUT type="text" name="fixed"> <br/><br/>
+</FORM>
